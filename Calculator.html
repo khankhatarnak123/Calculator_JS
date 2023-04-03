@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+
+    <style>
+        .calculator{
+            background-color: cadetblue;
+            height: 350px;
+            width: 250px;
+            margin:150px 600px;
+            border-radius: 10px;
+            
+        }
+
+        .cal-body{
+            width: 216px;
+            margin: auto;
+        }
+
+        .cal-body button{
+            background-color: black;
+            color: white;
+            /* padding: 10px 15px; */
+            width: 45px;
+            height: 50px;
+            text-align: center;
+            margin: 3px;
+            border-radius: 10px;
+        }
+
+        #screen{
+            width: 91%;
+            display: block;
+            margin: 0px auto 10px auto ;
+            padding: 10px;
+            text-align: center;
+            font-size: 22px;
+            border-radius: 5px;
+            
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator">
+        <div class="cal-head">
+            <input placeholder="Output" type="text" id="screen" name="screen">
+        </div>
+        <div class="cal-body">
+            <button onclick="getButtonValue(event)">9</button>
+            <button onclick="getButtonValue(event)">8</button>
+            <button onclick="getButtonValue(event)">7</button>
+            <button onclick="getButtonValue(event)">/</button>
+            <button onclick="getButtonValue(event)">6</button>
+            <button onclick="getButtonValue(event)">5</button>
+            <button onclick="getButtonValue(event)">4</button>
+            <button onclick="getButtonValue(event)">*</button>
+            <button onclick="getButtonValue(event)">3</button>
+            <button onclick="getButtonValue(event)">2</button>
+            <button onclick="getButtonValue(event)">1</button>
+            <button onclick="getButtonValue(event)">-</button>
+            <button onclick="getButtonValue(event)">.</button>
+            <button onclick="getButtonValue(event)">0</button>
+            <button onclick="getButtonValue(event)">00</button>
+            <button onclick="getButtonValue(event)">+</button>
+            <button onclick="AllClear()">AC</button>
+            <button onclick="Clear()">C</button>
+            <button onclick="result()" style="width: 100px;">=</button>
+        </div>
+    </div>
+
+
+
+    <script>
+        let screen = document.getElementById("screen")
+        function getButtonValue(event){
+            let buttonValue = event.target.innerText
+
+            screen.value += buttonValue
+        }
+
+        function result(){
+            screen.value = eval(screen.value);
+        }
+
+        function AllClear(){
+           screen.value = ""
+        }
+
+        function Clear() {
+             screen.value = screen.value.slice(0, -1)
+      
+        }
+    </script>
+</body>
+</html>
